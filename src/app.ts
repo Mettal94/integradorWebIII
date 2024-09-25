@@ -33,4 +33,6 @@ app.use('/profesores', profesoresRoutes);
 app.use('/cursos', cursosRoutes);
 app.use('/inscripciones', inscripcionRoutes);
 
+
+//hacemos un cambio
 export default app;
