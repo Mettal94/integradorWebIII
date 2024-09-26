@@ -1,9 +1,8 @@
 extends ./index
 
 block contenido
-    h1.text-2xl.font-bold.mb-4 Inscripciones de: #{inscripciones[0].estudiante.nombre} #{inscripciones[0].estudiante.apellido} - DNI:#{inscripciones[0].estudiante.dni}
-    
     if inscripciones && inscripciones.length > 0
+        h1.text-2xl.font-bold.mb-4 Inscripciones de: #{inscripciones[0].estudiante.nombre} #{inscripciones[0].estudiante.apellido} - DNI:#{inscripciones[0].estudiante.dni}
         table.table-auto.w-full.mt-4
             thead
                 tr
