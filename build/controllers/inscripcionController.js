@@ -67,6 +67,7 @@ const consultarxEstudiante = (req, res) => __awaiter(void 0, void 0, void 0, fun
             where: { estudiante_id: parseInt(req.params.id) },
             relations: ['estudiante', 'curso']
         });
+        console.log(inscripciones);
         if (inscripciones.length > 0) {
             return inscripciones;
         }

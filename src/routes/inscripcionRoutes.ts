@@ -26,15 +26,30 @@ router.get('/crearInscripciones', async (req,res) => {
 });
 
 router.post('/',inscribir );
-
+/*
 router.get('/inscripcionesEstudiante', async (req, res) => {
         try {
             const estudiantes = await traerEstudiantes(req, res);
-            const inscripciones = await consultarxEstudiante(req,res);
+           // const inscripciones = await consultarxEstudiante(req,res);
     
             res.render('inscripcionesEstudiante', {
                 pagina: 'Inscripciones por Estudiante',
                 estudiantes,
+               // inscripciones,
+            });
+        } catch (err) {
+            if (err instanceof Error) {
+                res.status(500).json(err.message);
+            }
+        }
+}); */
+
+router.get('/inscripcionesEstudiante/:id', async (req, res) => {
+        try {
+            const inscripciones = await consultarxEstudiante(req,res);
+
+            res.render('inscripcionesEstudiante', {
+                pagina: 'Inscripciones por Estudiante',       
                 inscripciones,
             });
         } catch (err) {
@@ -42,7 +57,8 @@ router.get('/inscripcionesEstudiante', async (req, res) => {
                 res.status(500).json(err.message);
             }
         }
-});
+    });
+
 router.get('/xCurso/:id',consultarxCurso );
 
 router.get('/calificar/:curso_id/:estudiante_id', async (req,res) => {

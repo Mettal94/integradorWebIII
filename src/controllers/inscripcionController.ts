@@ -50,9 +50,10 @@ export const consultarUno = async (req:Request, res:Response) => {
 };
 
 export const consultarxEstudiante = async (req: Request, res: Response) => {
+    const estudiante_id = req.params.id;
     try {
         const inscripciones = await inscripcionRepository.find({ 
-            where: { estudiante_id: parseInt(req.params.id) },
+            where: { estudiante_id: parseInt(estudiante_id) },
             relations: ['estudiante', 'curso'] 
         });
         if (inscripciones.length > 0) {

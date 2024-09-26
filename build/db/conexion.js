@@ -63,7 +63,7 @@ exports.AppDataSource = new typeorm_1.DataSource({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     entities: [profesorModel_1.Profesor, estudianteModel_1.Estudiante, cursoModel_1.Curso, inscripcionModel_1.Inscripcion],
-    synchronize: true,
+    synchronize: false,
     logging: true
 });
 function initializeDatabase() {
