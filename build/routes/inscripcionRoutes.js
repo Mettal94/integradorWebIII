@@ -35,14 +35,29 @@ router.get('/crearInscripciones', (req, res) => __awaiter(void 0, void 0, void 0
     }
 }));
 router.post('/', inscripcionController_1.inscribir);
-router.get('/inscripcionesEstudiante', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+/*
+router.get('/inscripcionesEstudiante', async (req, res) => {
+        try {
+            const estudiantes = await traerEstudiantes(req, res);
+           // const inscripciones = await consultarxEstudiante(req,res);
+    
+            res.render('inscripcionesEstudiante', {
+                pagina: 'Inscripciones por Estudiante',
+                estudiantes,
+               // inscripciones,
+            });
+        } catch (err) {
+            if (err instanceof Error) {
+                res.status(500).json(err.message);
+            }
+        }
+}); */
+router.get('/inscripcionesEstudiante/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const estudiantes = yield (0, estudiantesController_1.traerEstudiantes)(req, res);
-        // const inscripciones = await consultarxEstudiante(req,res);
+        const inscripciones = yield (0, inscripcionController_1.consultarxEstudiante)(req, res);
         res.render('inscripcionesEstudiante', {
             pagina: 'Inscripciones por Estudiante',
-            estudiantes,
-            // inscripciones,
+            inscripciones,
         });
     }
     catch (err) {

@@ -62,12 +62,12 @@ const consultarUno = (req, res) => __awaiter(void 0, void 0, void 0, function* (
 });
 exports.consultarUno = consultarUno;
 const consultarxEstudiante = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const estudiante_id = req.params.id;
     try {
         const inscripciones = yield inscripcionRepository.find({
-            where: { estudiante_id: parseInt(req.params.id) },
+            where: { estudiante_id: parseInt(estudiante_id) },
             relations: ['estudiante', 'curso']
         });
-        console.log(inscripciones);
         if (inscripciones.length > 0) {
             return inscripciones;
         }
